@@ -2,17 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-    --background: #f0f2f5;
+    --background: ${props => props.theme.background};
     --red: #E52e54;
-    --blue: #5429CC;
+    --blue: ${props => props.theme.blue};
     --green: #33CC95;
 
-    --blue-light: #6933FF;
+    --blue-light: ${props => props.theme.blueLight};
 
-    --text-title: #363f5f;
+    --text-title: ${props => props.theme.title};
     --text-body: #969cb3;
 
-    --shape: #FFFFFF
+    --shape: ${props => props.theme.shape};
   }
 
   * {
@@ -34,7 +34,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: var(--background);
+    position: relative;
     -webkit-font-smoothing: antialiased;
+    transition: all ease .5s;
   }
 
   body, input, textarea, button {
@@ -63,6 +65,17 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
   }
 
   .react-modal-content {
@@ -86,5 +99,20 @@ export const GlobalStyle = createGlobalStyle`
     &:hover {
       filter: brightness(0.9);
     }
+  }
+
+  .react-switch {
+    position: absolute !important;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .react-container-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 20px;
+    color: #F6B803;
   }
 `

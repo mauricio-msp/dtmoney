@@ -30,16 +30,19 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
 
   async function createTransaction(transactionInput: TransactionInput) {
     const response = await api.post('/transactions', { ...transactionInput, createdAt: new Date() })
-    const { transaction } = response.data
+    const transaction = response.data
 
     setTransactions(oldTransactions => [...oldTransactions, transaction])
-    window.localStorage.setItem('transactions', JSON.stringify([...transactions, transaction]))
+    window.localStorage.setItem(
+      '@dtmoney:transactions',
+      JSON.stringify([...transactions, transaction]),
+    )
   }
 
   useEffect(() => {
-    // api.get('transactions').then(response => setTransactions(response.data.transactions))
+    api.get('transactions').then(response => setTransactions(response.data.transactions))
 
-    const localTransactions = window.localStorage.getItem('transactions')
+    const localTransactions = window.localStorage.getItem('@dtmoney:transactions')
 
     if (localTransactions) setTransactions(JSON.parse(localTransactions))
   }, [])
