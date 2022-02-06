@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     --text-body: #969cb3;
 
     --shape: ${props => props.theme.shape};
+    --modal: ${props => props.theme.modal};
   }
 
   * {
@@ -81,7 +82,7 @@ export const GlobalStyle = createGlobalStyle`
   .react-modal-content {
     width: 100%;
     max-width: 576px;
-    background: var(--background);
+    background: var(--modal);
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;
@@ -114,5 +115,11 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-size: 20px;
     color: #F6B803;
+  }
+
+  @media (max-width: 480px) {
+    .react-modal-overlay {
+      align-items: flex-end;
+    }
   }
 `

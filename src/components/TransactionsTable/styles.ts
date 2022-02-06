@@ -13,6 +13,14 @@ export const TableContainer = styled.div`
       padding: 1rem 2rem;
       text-align: left;
       line-height: 1.5rem;
+
+      &:first-child {
+        border-radius: 0.25rem 0 0 0.25rem;
+      }
+
+      &:last-child {
+        border-radius: 0 0.25rem 0.25rem 0;
+      }
     }
 
     td {

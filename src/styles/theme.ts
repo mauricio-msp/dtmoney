@@ -5,6 +5,7 @@ export const lightTheme = {
   text: '#969cb3',
   blue: '#5429CC',
   blueLight: '#6933FF',
+  modal: '#f0f2f5',
 }
 
 export const darkTheme = {
@@ -14,4 +15,5 @@ export const darkTheme = {
   text: '#C8D0D8',
   blue: '#161B22',
   blueLight: '#21262D',
+  modal: '#21262D',
 }

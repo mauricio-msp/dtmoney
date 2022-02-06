@@ -3,6 +3,7 @@ import { darken, transparentize } from 'polished'
 
 type ButtonTypeProps = {
   isActive: boolean
+  isDarkMode: boolean
   activeColor: string
 }
 
@@ -65,7 +66,12 @@ export const ButtonType = styled.button<ButtonTypeProps>`
   border: 1px solid #d7d7d7;
   border-radius: 0.25rem;
 
-  background: ${props => (props.isActive ? transparentize(0.9, props.activeColor) : 'transparent')};
+  background: ${props =>
+    props.isActive && props.isDarkMode
+      ? transparentize(0.5, props.activeColor)
+      : props.isActive && !props.isDarkMode
+      ? transparentize(0.9, props.activeColor)
+      : 'transparent'};
 
   display: flex;
   align-items: center;

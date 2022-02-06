@@ -60,8 +60,8 @@ export function App() {
               <MdLightMode />
             </div>
           }
-          onColor="#21262D"
-          offColor="#969cb3"
+          onColor="#4D4D4D"
+          offColor="#4D4D4D"
           className="react-switch"
         />
         <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />

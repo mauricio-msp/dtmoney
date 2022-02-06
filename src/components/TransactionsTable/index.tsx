@@ -1,8 +1,10 @@
+import { MdRemoveCircleOutline } from 'react-icons/md'
+
 import { useTransactions } from '../../context/TransactionProvider'
 import { TableContainer } from './styles'
 
 export function TransactionsTable() {
-  const { transactions } = useTransactions()
+  const { transactions, removeTransaction } = useTransactions()
 
   return (
     <TableContainer>
@@ -13,6 +15,7 @@ export function TransactionsTable() {
             <th>Valor</th>
             <th>Categoria</th>
             <th>Data</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +23,7 @@ export function TransactionsTable() {
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>
+                {transaction.type === 'withdraw' ? '- ' : ''}
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL',
@@ -27,6 +31,12 @@ export function TransactionsTable() {
               </td>
               <td>{transaction.category}</td>
               <td>{new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}</td>
+              <td>
+                <MdRemoveCircleOutline
+                  onClick={() => removeTransaction(transaction.id)}
+                  style={{ fontSize: 28, color: '#E52e54', paddingTop: 8, cursor: 'pointer' }}
+                />
+              </td>
             </tr>
           ))}
         </tbody>

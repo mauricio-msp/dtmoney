@@ -1,3 +1,5 @@
+import { MdOutlineAddCircleOutline } from 'react-icons/md'
+
 import logo from '../../assets/logo.svg'
 import { HeaderContainer, HeaderContent } from './styles'
 
@@ -11,7 +13,7 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
       <HeaderContent>
         <img src={logo} alt="dt money" />
         <button type="button" onClick={onOpenNewTransactionModal}>
-          Nova transação
+          <MdOutlineAddCircleOutline style={{ fontSize: 22 }} /> Nova transação
         </button>
       </HeaderContent>
     </HeaderContainer>

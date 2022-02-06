@@ -7,5 +7,6 @@ declare module 'styled-components' {
     blueLight: string
     shape: string
     title: string
+    modal: string
   }
 }

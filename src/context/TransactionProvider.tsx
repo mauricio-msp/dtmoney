@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { api } from '../services/api'
+// import { api } from '../services/api'
 
 type Transaction = {
   id: number
@@ -14,7 +14,9 @@ type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>
 
 type TransactionContextData = {
   transactions: Transaction[]
-  createTransaction: (transaction: TransactionInput) => Promise<void>
+  createTransaction: (transaction: TransactionInput) => void
+  removeTransaction: (id: number) => void
+  lastTransaction: (transactions: Transaction[], type: 'deposit' | 'withdraw') => string | null
 }
 
 type TransactionProviderProps = {
@@ -28,27 +30,59 @@ export const TransactionContext = createContext<TransactionContextData>(
 export function TransactionProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
-  async function createTransaction(transactionInput: TransactionInput) {
-    const response = await api.post('/transactions', { ...transactionInput, createdAt: new Date() })
-    const transaction = response.data
+  function createTransaction(transactionInput: TransactionInput) {
+    // const response = await api.post('/transactions', { ...transactionInput, createdAt: new Date() })
+    // const transaction = response.data
 
-    setTransactions(oldTransactions => [...oldTransactions, transaction])
-    window.localStorage.setItem(
-      '@dtmoney:transactions',
-      JSON.stringify([...transactions, transaction]),
+    const transaction = {
+      ...transactionInput,
+      id: transactions.length + 1,
+      createdAt: String(new Date()),
+    }
+
+    setTransactions(prevTransactions => [...prevTransactions, transaction])
+  }
+
+  function removeTransaction(transactionId: number) {
+    const newTransactions = transactions.filter(
+      (transaction: Transaction) => transaction.id !== transactionId,
+    )
+
+    setTransactions(newTransactions)
+  }
+
+  function lastTransaction(
+    transactions: Transaction[],
+    type: 'deposit' | 'withdraw',
+  ): string | null {
+    if (!transactions.length) return null
+
+    const transaction = transactions.filter((transaction: Transaction) => transaction.type === type)
+
+    if (!transaction.length) return null
+
+    return new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'long' }).format(
+      new Date(transaction[transaction.length - 1].createdAt),
     )
   }
 
   useEffect(() => {
-    api.get('transactions').then(response => setTransactions(response.data.transactions))
+    // api.get('transactions').then(response => setTransactions(response.data.transactions))
 
     const localTransactions = window.localStorage.getItem('@dtmoney:transactions')
 
     if (localTransactions) setTransactions(JSON.parse(localTransactions))
   }, [])
 
+  useEffect(() => {
+    if (transactions)
+      window.localStorage.setItem('@dtmoney:transactions', JSON.stringify(transactions))
+  }, [transactions])
+
   return (
-    <TransactionContext.Provider value={{ transactions, createTransaction }}>
+    <TransactionContext.Provider
+      value={{ transactions, createTransaction, removeTransaction, lastTransaction }}
+    >
       {children}
     </TransactionContext.Provider>
   )

@@ -15,6 +15,7 @@ type NewTransactionModalProps = {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
+  const isDarkMode = window.localStorage.getItem('@dtmoney:theme') || 'dark'
   const { createTransaction } = useTransactions()
 
   const [type, setType] = useState('deposit')
@@ -24,10 +25,10 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     setInput({ ...input, [event.target.name]: event.target.value })
   }
 
-  async function handleSubmitNewTransaction(event: FormEvent) {
+  function handleSubmitNewTransaction(event: FormEvent) {
     event.preventDefault()
 
-    await createTransaction({
+    createTransaction({
       ...input,
       amount: Number(input.amount),
       type,
@@ -66,6 +67,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
           <ButtonType
             type="button"
             onClick={() => setType('deposit')}
+            isDarkMode={isDarkMode === 'dark'}
             isActive={type === 'deposit'}
             activeColor="#33CC95"
           >
@@ -75,6 +77,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
           <ButtonType
             type="button"
             onClick={() => setType('withdraw')}
+            isDarkMode={isDarkMode === 'dark'}
             isActive={type === 'withdraw'}
             activeColor="#E52e54"
           >

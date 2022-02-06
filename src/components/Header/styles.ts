@@ -14,6 +14,10 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
 
   button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
     font-size: 1rem;
     color: #fff;
     background: var(--blue-light);

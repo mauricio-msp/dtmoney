@@ -1,14 +1,23 @@
 import styled from 'styled-components'
 
 export const SummaryContainer = styled.div`
+  width: 100%;
+
+  @media (max-width: 930px) {
+    overflow-x: auto;
+    margin-top: -9rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+`
+
+export const SummaryContent = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: -9rem;
-
-  @media (max-width: 930px) {
-    grid-template-columns: 1fr;
-  }
 
   div {
     background: var(--shape);
@@ -33,6 +42,20 @@ export const SummaryContainer = styled.div`
     &.highlight-background {
       background: var(--green);
       color: #fff;
+    }
+
+    > p {
+      display: none;
+      color: var(--text-body);
+    }
+  }
+
+  @media (max-width: 930px) {
+    width: 1280px;
+    margin-top: 0;
+
+    div > p {
+      display: block;
     }
   }
 `

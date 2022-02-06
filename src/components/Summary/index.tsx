@@ -4,10 +4,10 @@ import total from '../../assets/total.svg'
 
 import { useTransactions } from '../../context/TransactionProvider'
 
-import { SummaryContainer } from './styles'
+import { SummaryContainer, SummaryContent } from './styles'
 
 export function Summary() {
-  const { transactions } = useTransactions()
+  const { transactions, lastTransaction } = useTransactions()
 
   const summary = transactions.reduce(
     (acc, transaction) => {
@@ -30,43 +30,55 @@ export function Summary() {
 
   return (
     <SummaryContainer>
-      <div>
-        <header>
-          <p>Entradas</p>
-          <img src={income} alt="Entradas" />
-        </header>
-        <strong>
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(summary.deposits)}
-        </strong>
-      </div>
-      <div>
-        <header>
-          <p>Saídas</p>
-          <img src={outcome} alt="Saídas" />
-        </header>
-        <strong>
-          -
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(summary.withdraws)}
-        </strong>
-      </div>
-      <div className="highlight-background">
-        <header>
-          <p>Total</p>
-          <img src={total} alt="Total" />
-        </header>
-        <strong>
-          {new Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(summary.total)}
-        </strong>
-      </div>
+      <SummaryContent>
+        <div>
+          <header>
+            <p>Entradas</p>
+            <img src={income} alt="Entradas" />
+          </header>
+          <strong>
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(summary.deposits)}
+          </strong>
+          <p>
+            {(lastTransaction(transactions, 'deposit') &&
+              `Última entrada dia ${lastTransaction(transactions, 'deposit')}`) ||
+              ''}
+          </p>
+        </div>
+        <div>
+          <header>
+            <p>Saídas</p>
+            <img src={outcome} alt="Saídas" />
+          </header>
+          <strong>
+            -{' '}
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(summary.withdraws)}
+          </strong>
+          <p>
+            {(lastTransaction(transactions, 'withdraw') &&
+              `Última saida dia ${lastTransaction(transactions, 'withdraw')}`) ||
+              ''}
+          </p>
+        </div>
+        <div className="highlight-background">
+          <header>
+            <p>Total</p>
+            <img src={total} alt="Total" />
+          </header>
+          <strong>
+            {new Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(summary.total)}
+          </strong>
+        </div>
+      </SummaryContent>
     </SummaryContainer>
   )
 }
