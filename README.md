@@ -8,10 +8,19 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 - [React](https://pt-br.reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [MirageJS](https://miragejs.com/)
+- [API localStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/docs/en/options.html)
 - [styled-components](https://styled-components.com/)
 - [axios](https://github.com/axios/axios)
+
+# :clipboard: To Do
+
+- [x] Configurar com ESLint + Prettier
+- [x] Persistir dados no localStorage
+- [x] Tema dark
+- [x] Versão mobile
+- [ ] Testes Front-end 
 
 # :wrench: Instalação e uso
 
