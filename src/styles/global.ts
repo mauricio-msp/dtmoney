@@ -102,16 +102,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  .react-switch {
-    position: absolute !important;
-    top: 1rem;
-    right: 1rem;
-  }
-
   .react-container-icon {
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 100%;
     font-size: 20px;
     color: #F6B803;
