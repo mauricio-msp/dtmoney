@@ -66,7 +66,9 @@ export function Summary() {
               ''}
           </p>
         </div>
-        <div className="highlight-background">
+        <div
+          className={`highlight-background balance-${summary.total >= 0 ? 'positive' : 'negative'}`}
+        >
           <header>
             <p>Total</p>
             <img src={total} alt="Total" />

@@ -7,11 +7,11 @@ export const CardContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
     h1 {
       font-size: 1.25rem;
       color: var(--text-title);
-      margin-bottom: 1rem;
     }
 
     span {
@@ -33,6 +33,10 @@ export const CardContent = styled.div`
     border-radius: 0.25rem;
 
     p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
       font-size: 1rem;
       color: var(--text-title);
       line-height: 2rem;

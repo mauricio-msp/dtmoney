@@ -1,9 +1,12 @@
+import { MdRemoveCircleOutline } from 'react-icons/md'
+
 import { useTransactions } from '../../context/TransactionProvider'
 import { NoTransactions } from '../NoTransactions'
+
 import { CardContainer, CardContent } from './styles'
 
 export function TransactionsCard() {
-  const { transactions } = useTransactions()
+  const { transactions, removeTransaction } = useTransactions()
 
   return (
     <CardContainer>
@@ -15,7 +18,13 @@ export function TransactionsCard() {
       <CardContent>
         {transactions.map(transaction => (
           <div key={transaction.id}>
-            <p>{transaction.title}</p>
+            <p>
+              {transaction.title}
+              <MdRemoveCircleOutline
+                onClick={() => removeTransaction(transaction.id)}
+                style={{ fontSize: 22, color: '#E52e54', cursor: 'pointer' }}
+              />
+            </p>
             <span className={transaction.type}>
               {transaction.type === 'withdraw' ? '- ' : ''}
               {new Intl.NumberFormat('pt-BR', {

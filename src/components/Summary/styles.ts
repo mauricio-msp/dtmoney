@@ -40,8 +40,15 @@ export const SummaryContent = styled.div`
     }
 
     &.highlight-background {
-      background: var(--green);
       color: #fff;
+    }
+
+    &.balance-positive {
+      background: var(--green);
+    }
+
+    &.balance-negative {
+      background: var(--red);
     }
 
     > p {
@@ -51,7 +58,7 @@ export const SummaryContent = styled.div`
   }
 
   @media (max-width: 930px) {
-    width: 1280px;
+    width: calc(100% + 600px);
     margin-top: 0;
 
     div > p {

@@ -44,6 +44,8 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
   }
 
   function removeTransaction(transactionId: number) {
+    if (!confirm('Deseja realmente remover esta transação?')) return
+
     const newTransactions = transactions.filter(
       (transaction: Transaction) => transaction.id !== transactionId,
     )
