@@ -1,4 +1,5 @@
 import { useTransactions } from '../../context/TransactionProvider'
+import { NoTransactions } from '../NoTransactions'
 import { CardContainer, CardContent } from './styles'
 
 export function TransactionsCard() {
@@ -31,6 +32,8 @@ export function TransactionsCard() {
           </div>
         ))}
       </CardContent>
+
+      {!transactions.length && <NoTransactions />}
     </CardContainer>
   )
 }

@@ -1,6 +1,7 @@
 import { MdRemoveCircleOutline } from 'react-icons/md'
 
 import { useTransactions } from '../../context/TransactionProvider'
+import { NoTransactions } from '../NoTransactions'
 import { TableContainer } from './styles'
 
 export function TransactionsTable() {
@@ -41,6 +42,8 @@ export function TransactionsTable() {
           ))}
         </tbody>
       </table>
+
+      {!transactions.length && <NoTransactions />}
     </TableContainer>
   )
 }

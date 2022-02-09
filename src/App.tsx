@@ -5,6 +5,7 @@ import Modal from 'react-modal'
 import { Dashboard } from './components/Dashboard'
 import { Header } from './components/Header'
 import { NewTransactionModal } from './components/NewTransactionModal'
+import { Footer } from './components/Footer'
 import { Switch } from './components/Switch'
 
 import { TransactionProvider } from './context/TransactionProvider'
@@ -45,11 +46,18 @@ export function App() {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <TransactionProvider>
+        {/** GLOBAL STYLES */}
         <GlobalStyle />
 
+        {/** SWITCH THEME */}
         <Switch checked={theme === 'dark'} onChange={handleChangeTheme} checkedIcon uncheckedIcon />
+
+        {/** MAIN APP */}
         <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
         <Dashboard />
+        <Footer />
+
+        {/** MODAL APP */}
         <NewTransactionModal
           isOpen={isNewTransactionModalOpen}
           onRequestClose={handleCloseNewTransactionModal}
