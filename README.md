@@ -23,7 +23,8 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 - [x] Persistir dados no localStorage
 - [x] Tema dark
 - [x] Versão mobile
-- [ ] Testes Front-end 
+- [ ] Testes Front-end
+- [ ] PWA (Progressive Web App) 
 
 # :wrench: Instalação e uso
 
