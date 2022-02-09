@@ -6,6 +6,8 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 
 - [Vite](https://vitejs.dev/)
 - [React](https://pt-br.reactjs.org/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Modal](https://github.com/reactjs/react-modal)
 - [Typescript](https://www.typescriptlang.org/)
 - [MirageJS](https://miragejs.com/)
 - [API localStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage)
@@ -13,6 +15,7 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 - [Prettier](https://prettier.io/docs/en/options.html)
 - [styled-components](https://styled-components.com/)
 - [axios](https://github.com/axios/axios)
+- [polished](https://polished.js.org/)
 
 # :clipboard: To Do
 
