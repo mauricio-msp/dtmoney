@@ -5,6 +5,7 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 # :rocket: Tecnologias
 
 - [Vite](https://vitejs.dev/)
+- [Vite PWA](https://vite-plugin-pwa.netlify.app/)
 - [React](https://pt-br.reactjs.org/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [React Modal](https://github.com/reactjs/react-modal)
@@ -24,7 +25,7 @@ O dt money é uma alternativa simples e eficaz para gerenciar suas finanças, pe
 - [x] Tema dark
 - [x] Versão mobile
 - [ ] Testes Front-end
-- [ ] PWA (Progressive Web App) 
+- [x] PWA (Progressive Web App) 
 
 # :wrench: Instalação e uso
 
