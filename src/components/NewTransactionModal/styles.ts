@@ -14,6 +14,15 @@ export const Form = styled.form`
     margin-bottom: 2rem;
   }
 
+  label {
+    display: inline-block;
+    width: 100%;
+
+    & + label {
+      margin-top: 1rem;
+    }
+  }
+
   input {
     width: 100%;
     padding: 0 1.5rem;
@@ -26,10 +35,6 @@ export const Form = styled.form`
 
     &::placeholder {
       color: var(--text-body);
-    }
-
-    & + input {
-      margin-top: 1rem;
     }
   }
 
