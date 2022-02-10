@@ -7,6 +7,7 @@ import { Header } from './components/Header'
 import { NewTransactionModal } from './components/NewTransactionModal'
 import { Footer } from './components/Footer'
 import { Switch } from './components/Switch'
+import { ReloadPrompt } from './ReloadPrompt'
 
 import { TransactionProvider } from './context/TransactionProvider'
 
@@ -62,6 +63,9 @@ export function App() {
           isOpen={isNewTransactionModalOpen}
           onRequestClose={handleCloseNewTransactionModal}
         />
+
+        {/** PWA */}
+        <ReloadPrompt />
       </TransactionProvider>
     </ThemeProvider>
   )

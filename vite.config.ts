@@ -7,8 +7,25 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      workbox: {
-        sourcemap: true,
+      base: '/',
+      includeAssets: ['favicon.png'],
+      manifest: {
+        name: 'dtmoney | app finanças',
+        description: 'dtmoney uma aplicação desenvolvida para o controle de finanças.',
+        short_name: 'dtmoney',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'pwa-192x192.png', // <== don't add slash, for testing
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/pwa-512x512.png', // <== don't remove slash, for testing
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
       },
     }),
   ],
