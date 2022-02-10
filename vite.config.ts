@@ -14,7 +14,9 @@ export default defineConfig({
         name: 'dtmoney | app finanças',
         description: 'dtmoney uma aplicação desenvolvida para o controle de finanças.',
         short_name: 'dtmoney',
+        background_color: '#21262D',
         theme_color: '#21262D',
+        lang: 'pt-BR',
         icons: [
           {
             src: 'pwa-192x192.png', // <== don't add slash, for testing
