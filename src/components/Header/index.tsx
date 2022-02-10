@@ -11,7 +11,7 @@ export function Header({ onOpenNewTransactionModal }: HeaderProps) {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img src={logo} alt="dt money" />
+        <img src={logo} alt="dtmoney" />
         <button type="button" onClick={onOpenNewTransactionModal}>
           <MdOutlineAddCircleOutline style={{ fontSize: 22 }} /> Nova transação
         </button>

@@ -19,8 +19,8 @@ export function Switch({
   uncheckedColor,
 }: SwitchProps) {
   return (
-    <SwitchButton checkedColor={checkedColor} uncheckedColor={uncheckedColor}>
-      <input type="checkbox" checked={checked} onChange={onChange} />
+    <SwitchButton htmlFor="switch" checkedColor={checkedColor} uncheckedColor={uncheckedColor}>
+      <input type="checkbox" id="switch" checked={checked} onChange={onChange} />
       <span className={checked ? 'checked' : ''}>
         {checked ? (
           <>

@@ -54,14 +54,25 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
       <Form onSubmit={handleSubmitNewTransaction}>
         <h2>Cadastrar transação</h2>
 
-        <input placeholder="Título" name="title" value={input.title} onChange={handleChangeInput} />
-        <input
-          type="number"
-          placeholder="Valor"
-          name="amount"
-          value={input.amount}
-          onChange={handleChangeInput}
-        />
+        <label htmlFor="title">
+          <input
+            placeholder="Título"
+            name="title"
+            id="title"
+            value={input.title}
+            onChange={handleChangeInput}
+          />
+        </label>
+        <label htmlFor="amount">
+          <input
+            type="number"
+            placeholder="Valor"
+            name="amount"
+            id="amount"
+            value={input.amount}
+            onChange={handleChangeInput}
+          />
+        </label>
 
         <ButtonGroupType>
           <ButtonType
@@ -85,12 +96,15 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
             <span>Saída</span>
           </ButtonType>
         </ButtonGroupType>
-        <input
-          placeholder="Categoria"
-          name="category"
-          value={input.category}
-          onChange={handleChangeInput}
-        />
+        <label htmlFor="category">
+          <input
+            placeholder="Categoria"
+            name="category"
+            id="category"
+            value={input.category}
+            onChange={handleChangeInput}
+          />
+        </label>
 
         <button type="submit">Cadastrar</button>
       </Form>
