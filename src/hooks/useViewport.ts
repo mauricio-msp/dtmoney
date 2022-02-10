@@ -30,7 +30,7 @@ export function useViewport(debounce: any = false) {
     vpWidth: vpW,
     vpHeight: vpH,
   }))
-  const timeout = useRef<undefined | number>(undefined)
+  const timeout = useRef<ReturnType<typeof setTimeout>>()
   const listener = useMemo(
     () =>
       !debounce
