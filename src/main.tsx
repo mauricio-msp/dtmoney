@@ -46,6 +46,8 @@ createServer({
   },
 })
 
+if (typeof window !== 'undefined') import('./sw')
+
 render(
   <React.StrictMode>
     <App />
