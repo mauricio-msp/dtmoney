@@ -1,6 +1,6 @@
-import { registerSW } from 'virtual:pwa-register'
+import { useRegisterSW } from 'virtual:pwa-register/react'
 
-registerSW({
+useRegisterSW({
   onOfflineReady() {},
   onNeedRefresh() {},
   onRegistered(r) {

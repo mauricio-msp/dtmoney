@@ -8,6 +8,7 @@ import close from '../../assets/close.svg'
 import { useTransactions } from '../../context/TransactionProvider'
 
 import { Form, ButtonGroupType, ButtonType } from './styles'
+import { Input } from '../Input'
 
 type NewTransactionModalProps = {
   isOpen: boolean
@@ -54,25 +55,22 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
       <Form onSubmit={handleSubmitNewTransaction}>
         <h2>Cadastrar transação</h2>
 
-        <label htmlFor="title">
-          <input
-            placeholder="Título"
-            name="title"
-            id="title"
-            value={input.title}
-            onChange={handleChangeInput}
-          />
-        </label>
-        <label htmlFor="amount">
-          <input
-            type="number"
-            placeholder="Valor"
-            name="amount"
-            id="amount"
-            value={input.amount}
-            onChange={handleChangeInput}
-          />
-        </label>
+        <Input
+          type="text"
+          label="title"
+          name="title"
+          placeholder="Título"
+          value={input.title}
+          onChange={handleChangeInput}
+        />
+        <Input
+          type="number"
+          label="amount"
+          name="amount"
+          placeholder="Valor"
+          value={input.amount}
+          onChange={handleChangeInput}
+        />
 
         <ButtonGroupType>
           <ButtonType
@@ -96,15 +94,15 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
             <span>Saída</span>
           </ButtonType>
         </ButtonGroupType>
-        <label htmlFor="category">
-          <input
-            placeholder="Categoria"
-            name="category"
-            id="category"
-            value={input.category}
-            onChange={handleChangeInput}
-          />
-        </label>
+
+        <Input
+          type="text"
+          label="category"
+          name="category"
+          placeholder="Categoria"
+          value={input.category}
+          onChange={handleChangeInput}
+        />
 
         <button type="submit">Cadastrar</button>
       </Form>
