@@ -13,15 +13,16 @@ export function TransactionsTable() {
 
   const transactionsFilter = useMemo(() => {
     const filtered = transactions.filter(({ title, category }) => {
-      const filterTransaction =
-        title.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        category.toLowerCase().includes(filter.toLocaleLowerCase())
+      const filterTransaction = filter
+        ? title.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+          category.toLowerCase().includes(filter.toLocaleLowerCase())
+        : true
 
       return filterTransaction
     })
 
     return filtered
-  }, [filter])
+  }, [filter, transactions])
 
   return (
     <>
